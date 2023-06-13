@@ -1,4 +1,5 @@
 import os
+import webbrowser
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog as fd
@@ -123,6 +124,10 @@ def set_path_to_build():
     build_setting.path = fd.askdirectory()
 
 
+def open_doc():
+    webbrowser.open('https://github.com/ValterGames-Coder/Deb-Unity-Builder#readme')
+
+
 def save_package():
     if len(path_to_main_label['text']) > 0 and len(path_to_game_label['text']) > 0 and len(path_to_icon_label['text']) > 0:
         build_setting.package = True
@@ -230,8 +235,7 @@ notebook = ttk.Notebook()
 # region Menu
 main_menu = tk.Menu()
 main_menu.add_cascade(label="New Package", command=new_package)
-main_menu.add_cascade(label="Help")
-main_menu.add_cascade(label="About")
+main_menu.add_cascade(label="Help", command=open_doc)
 
 window.config(menu=main_menu)
 # endregion
